@@ -23,6 +23,8 @@ Revision History:
 --*/
 #pragma once
 
+#include <atomic>
+
 #include "tactic/goal.h"
 
 class probe {
@@ -40,7 +42,7 @@ public:
     };
 
 private:
-    unsigned m_ref_count;
+        std::atomic<unsigned> m_ref_count;
 
 public:
     probe():m_ref_count(0) {}

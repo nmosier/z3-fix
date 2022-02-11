@@ -20,6 +20,8 @@ Notes:
 --*/
 #pragma once
 
+#include <atomic>
+
 #include "util/params.h"
 #include "util/lbool.h"
 #include "util/statistics.h"
@@ -32,7 +34,7 @@ class progress_callback;
 typedef ptr_buffer<goal> goal_buffer;
 
 class tactic : public user_propagator::core {
-    unsigned m_ref_count;
+    std::atomic<unsigned> m_ref_count;
 public:
     tactic():m_ref_count(0) {}
     virtual ~tactic() {}
